@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+</div>
+<div>
+	<p>This application made for monitoring production data </p>
+	<p>It consists of two parts:</p>
+	<ul>
+		<li>
+			<p>
+				<b>DataLogger.Exe</b> which is console application designed for parsing xml logfiles from 
+				 testers and save those data to the SQL server DataBase. Data base should be previously designed.
+				You can generate DB by mean of attached script "Script_for_ProductionMonitor.sql"
+				In general this application should be distributed for every tester which you want to collect data.
+			</p>
+		</li>
+		<li>
+			<p>
+				<b>Data Monitor</b> web application. Purpose of this part is to make some user friendly app for 
+				easy data monitoring and analisation.
+			</p>
+		</li>
+	</ul>
+</div> 
