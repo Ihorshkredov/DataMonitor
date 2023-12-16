@@ -10,19 +10,18 @@ namespace DataMonitor.Services
 	{
 		public static List<TesterView> GetTesterViewList(string connectionString)
 		{
-			string sql = "SELECT * FROM Tester";
+			const string sql = "SELECT * FROM Tester";
 			List<TesterView> result = new List<TesterView>();
 			List<Tester> testerList = new List<Tester>();
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (var connection = new SqlConnection(connectionString))
 			{
 				connection.Open();
 				testerList = connection.Query<Tester>(sql).ToList();
 
 				foreach (Tester tester in testerList)
 				{
-					 DynamicParameters parameters = new DynamicParameters();
-					 parameters.Add("@TesterID", tester.id);
+					 SqlParameter parameters = new SqlParameter("@TesterID", tester.id);
 
 					var fullCheckList = connection.Query<FullCheckView>("GetLast100FullTest", parameters, commandType: System.Data.CommandType.StoredProcedure).ToList();
 
@@ -35,8 +34,10 @@ namespace DataMonitor.Services
 						}
 					}
 
-					result.Add( new TesterView (tester.id,tester.Name,
-								((passedCount*100)/fullCheckList.Count)));
+					var item = new TesterView(tester.id, tester.Name,
+								((passedCount * 100) / fullCheckList.Count));
+
+                    result.Add(item);
 				}
 
             }

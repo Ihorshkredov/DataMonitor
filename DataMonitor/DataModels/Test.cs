@@ -12,17 +12,6 @@
 
         public string Value { get; set; }
 
-        public string Status { get; set; }
-
-        public Test(DateTime testId, string name, string rule, string lowLimit, string highLimit, string value, string status)
-        {
-            TestID = testId;
-            Name = name;
-            Rule = rule;
-            LowLimit = lowLimit;
-            HighLimit = highLimit;
-            Value = value;
-            Status = status;
-        }
+        public string Status { get; set; }      
     }
 }
