@@ -7,11 +7,11 @@
 
         public double FPY { get; }
 
-        public TesterView(int id, string name, double fpy )
+        public TesterView(int id, string name, double fpy)
         {
             this.id = id;
             this.Name = name;
-            this.FPY = fpy;                
+            this.FPY = fpy;
         }
 
 

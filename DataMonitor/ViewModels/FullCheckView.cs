@@ -7,13 +7,13 @@
 
 		public DateTime TimeStamp { get; set; }
 
-        public FullCheckView( int id, string status, DateTime timeStamp)
-        {
+		public FullCheckView(int id, string status, DateTime timeStamp)
+		{
 			this.id = id;
 			Status = status;
 			TimeStamp = timeStamp;
-				
-        }
 
-    }
+		}
+
+	}
 }
